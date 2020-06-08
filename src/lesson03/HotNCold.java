@@ -20,13 +20,14 @@ public class HotNCold {
 
         // random.nextInt(100) число от [0 до 100)
         int compNum = random.nextInt(100) + 1; //число от [1 до 100]
-        int previous, humanNum, current;
+        int previous, humanNum;
 
+        System.out.print("Для досрочного выхода из программы наберите '111'");
         System.out.print("У вас 10 попыток. " + "Введите число от 0 до 100: ");
+
         humanNum = scanner.nextInt();
 
         previous = 0;
-        current = 0;
 
         for (int i = 0; i < 10; i++) {
             System.out.println("Попытка №" + (i + 1));
@@ -34,16 +35,22 @@ public class HotNCold {
                 System.out.println("Вы угадали!");
                 break;
             } else {
-                if (Math.abs(humanNum - current) > previous) {
+                if ((Math.abs(compNum - humanNum) > previous) && (humanNum != 111)) {
                     System.out.println("Холодно!");
-                    current = humanNum;
-                    previous = Math.abs(current - previous);
+                    previous = Math.abs(compNum - humanNum);
                     humanNum = scanner.nextInt();
                 } else {
-                    System.out.println("Горячо!");
-                    current = humanNum;
-                    previous = Math.abs(current - previous);
-                    humanNum = scanner.nextInt();
+                    if (humanNum == 111) {
+                        break;
+                    } else {
+                        System.out.println("Горячо!");
+                        previous = Math.abs(compNum - humanNum);
+                        if (i == 11) {
+                            break;
+                        } else {
+                            humanNum = scanner.nextInt();
+                        }
+                    }
                 }
             }
         }
