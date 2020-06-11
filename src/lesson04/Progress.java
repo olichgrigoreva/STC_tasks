@@ -13,7 +13,7 @@ public class Progress {
         double bn;
         String progressType;
 
-        System.out.print("Введите А для арифметической прогрессии, любой символ - для геометрической: ");
+        System.out.print("Введите А (ru) для арифметической прогрессии, любой символ - для геометрической: ");
         progressType = scanner.next();
 
         //ввод данных
