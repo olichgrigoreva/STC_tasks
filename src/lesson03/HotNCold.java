@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * Консольное Java-приложение «Горячо-Холодно»
- *
+ * <p>
  * Вначале программа «загадывает» случайное число от 1 до 100.
  * Пользователь вводит с консоли число.
  * Программа говорит пользователю «горячо», если он приблизился к «загаданному» числу и «холодно», И позволяет ввести число еще раз. если введенное число дальше от загаданного, чем предыдущее.
@@ -22,37 +22,32 @@ public class HotNCold {
         int compNum = random.nextInt(100) + 1; //число от [1 до 100]
         int previous, humanNum;
 
-        System.out.print("Для досрочного выхода из программы наберите '111'");
-        System.out.print("У вас 10 попыток. " + "Введите число от 0 до 100: ");
-
-        humanNum = scanner.nextInt();
+        System.out.print("Для досрочного выхода из программы наберите '111'. ");
+        System.out.println("У вас 10 попыток. " + "Введите число от 1 до 100: ");
 
         previous = 0;
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Попытка №" + (i + 1));
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Попытка №" + (i));
+            humanNum = scanner.nextInt();
+
+            //угадано ли число
             if (humanNum == compNum) {
                 System.out.println("Вы угадали!");
                 break;
-            } else {
-                if ((Math.abs(compNum - humanNum) > previous) && (humanNum != 111)) {
-                    System.out.println("Холодно!");
-                    previous = Math.abs(compNum - humanNum);
-                    humanNum = scanner.nextInt();
-                } else {
-                    if (humanNum == 111) {
-                        break;
-                    } else {
-                        System.out.println("Горячо!");
-                        previous = Math.abs(compNum - humanNum);
-                        if (i == 11) {
-                            break;
-                        } else {
-                            humanNum = scanner.nextInt();
-                        }
-                    }
-                }
             }
+
+            //выход из игры
+            if (humanNum == 111) {
+                break;
+            }
+
+            if ((Math.abs(compNum - humanNum) > previous)) {
+                System.out.println("Холодно!");
+            } else {
+                System.out.println("Горячо!");
+            }
+            previous = Math.abs(compNum - humanNum);
         }
         System.out.println("Это было число: " + compNum);
     }
