@@ -10,8 +10,11 @@ import java.util.Scanner;
 public class NumDescription {
 
     //нечетное или четное число
-    static boolean oddEven(int num_oe) {
-        return num_oe % 2 == 0;
+    static String oddEven(int num_oe) {
+
+        return num_oe % 2 == 0 ?
+                "Четное число. " :
+                "Нечетное число. ";
     }
 
     static String positiveNegative(int num_pn) {
@@ -35,12 +38,6 @@ public class NumDescription {
 
         System.out.print("Введите целое число: ");
         number = scanner.nextInt();
-        result_pn = positiveNegative(number);
-
-        if (oddEven(number)) {
-            System.out.println("Четное число. " + result_pn);
-        } else {
-            System.out.println("Нечетное число. " + result_pn);
-        }
+        System.out.println(oddEven(number) + positiveNegative(number));
     }
 }
