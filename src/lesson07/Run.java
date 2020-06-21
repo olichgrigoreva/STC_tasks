@@ -11,14 +11,14 @@ public class Run {
         Scanner pause = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Для начала работы 2 раза нажмите Enter");
+            System.out.println("Для начала работы нажмите Enter");
             System.out.println("Для начала работы введите Esc");
 
-            pause.nextLine(); //пауза
+            start = pause.nextLine(); //пауза
 
-            /*if (start.equals("Esc")){
+            if (start.equals("Esc")){
                 break;
-            }*/
+            }
 
             System.out.println("Доступные для покупки позиции: ");
             int count = 0;
