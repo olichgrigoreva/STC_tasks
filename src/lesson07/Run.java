@@ -14,7 +14,7 @@ public class Run {
             System.out.println("Для начала работы нажмите Enter");
             System.out.println("Для начала работы введите Esc");
 
-            start = pause.nextLine(); //пауза
+            start = pause.nextLine(); //пауза - почему тут дб разные объекты???
 
             if (start.equals("Esc")){
                 break;
@@ -28,6 +28,14 @@ public class Run {
                 System.out.println(cookies + ": " + cookies.getPrice() + " руб");
                 count++;
             }
+
+            /*public static void print() {
+                Cookies[] values = values();
+                for(int i = 0; i < values.length; i++) {
+                    Cookies cookie = values[i];
+                    System.out.println(i + " " + cookie + ": " + cookie.getPrice() + " руб");
+                }
+            }*/
 
             System.out.print("Введите номер товара: ");
             productId = scanner.nextInt();
@@ -53,3 +61,4 @@ public class Run {
         }
     }
 }
+
