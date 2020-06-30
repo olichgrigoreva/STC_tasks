@@ -12,4 +12,12 @@ public enum Cookies {
     public int getPrice() {
         return price;
     }
+
+    public static void availableProducts() {
+        Cookies[] values = Cookies.values();
+        for(int i = 0; i < values.length; i++) {
+            Cookies cookie = values[i];
+            System.out.println(i + " " + cookie + ": " + cookie.getPrice() + " руб");
+        }
+    }
 }
