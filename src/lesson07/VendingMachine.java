@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class VendingMachine {
     public static void main(String[] args) {
 
-        int productId, getProdPrice;
-        int start;
+        int productId, clientProdPrice;
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -25,9 +24,9 @@ public class VendingMachine {
                 System.out.println("Вы выбрали: " + selectedItem);
 
                 System.out.println("Внесите деньги: ");
-                getProdPrice = scanner.nextInt();
+                clientProdPrice = scanner.nextInt();
 
-                MoneyOperation.payment(selectedItem,getProdPrice);
+                MoneyOperation.payment(selectedItem,clientProdPrice);
 
             } else {
                 System.out.println("Товара нет. Проверьте идентификатор!");
