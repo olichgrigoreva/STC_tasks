@@ -34,5 +34,12 @@ public class Main {
         System.out.println("Child. Age: " + child.getAge());
         child.swim();
         System.out.println(child.runRecommended(child.getAge()));
+
+        //Методы, чтобы лучше понять слабую связанность
+        Animal animal = new Bear();
+        Animal.method(animal);
+        Animal.method2(animal); //вызовется метод для Bear
+
+        Bear.bearMethod(animal);
     }
 }

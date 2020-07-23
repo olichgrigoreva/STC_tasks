@@ -29,4 +29,8 @@ public class Bear extends Animal implements Run, Swim {
     public String swimRecommended(int age) {
         return null;
     }
+
+    public static void bearMethod(Animal animal){
+        animal.getClass();
+    }
 }
